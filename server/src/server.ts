@@ -6,7 +6,7 @@ export class Server {
   private app: express.Application;
   private http!: http.Server;
 
-  constructor(private port: number) {
+  constructor(private port: number, private host: string) {
     this.app = Server.createExpressApp();
   }
 
@@ -30,7 +30,7 @@ export class Server {
    * @throws If the server fails to start.
    */
   async start() {
-    this.http = this.app.listen(this.port);
+    this.http = this.app.listen(this.port, this.host);
     await once(this.http, "listening");
   }
 }

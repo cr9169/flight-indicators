@@ -34,11 +34,11 @@ const initializeMongo = async () => {
 const main = async (): Promise<void> => {
   await initializeMongo();
 
-  const server = new Server(service.port);
+  const server = new Server(service.port, service.host);
 
   await server.start();
 
-  console.log(`Server started on port: ${service.port}`);
+  console.log(`Server is running on http://${service.host}:${service.port}`);
 };
 
 main().catch((error) => {
