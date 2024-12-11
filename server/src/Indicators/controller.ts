@@ -68,7 +68,7 @@ class IndicatorsController {
     ) => {
       const indicators = await IndicatorsModel.findOne({});
 
-      if (!indicators) return new errors.NotFoundError();
+      if (!indicators) throw new errors.NotFoundError();
 
       const newIndicators = await IndicatorsModel.findByIdAndUpdate(
         indicators._id,

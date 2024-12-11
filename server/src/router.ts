@@ -16,3 +16,5 @@ serverRouter.use(
 serverRouter.use("*", (_req: Request, res: Response) => {
   res.status(404).send("Invalid Route");
 });
+
+export default serverRouter;

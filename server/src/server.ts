@@ -2,6 +2,8 @@ import { once } from "events";
 import express from "express";
 import http from "http";
 import { IndicatorsModel } from "./Indicators/model";
+import serverRouter from "./router";
+import errorHandler from "./utils/errorHandler";
 
 export class Server {
   private app: express.Application;
@@ -21,6 +23,10 @@ export class Server {
 
     // Middleware to parse JSON payloads
     app.use(express.json());
+
+    app.use(serverRouter);
+
+    app.use(errorHandler);
 
     return app;
   }

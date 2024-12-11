@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import { NotFoundError } from "./customErrors";
 
 /**
  * Express error-handling middleware.
@@ -17,6 +18,14 @@ const errorHandler = (
   res: Response,
   _next: NextFunction
 ): void => {
+  console.error(err);
+
+  if (err instanceof NotFoundError) {
+    res.status(404).json({
+      error: err.message,
+    });
+  }
+
   res.status(500).json({
     message: "Internal Server Error",
     error: err.message,
