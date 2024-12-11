@@ -24,12 +24,13 @@ const initializeMongo = async () => {
  *
  * This function:
  * 1. Initializes the MongoDB connection.
- * 2. Starts the HTTP server on the configured port.
+ * 2. Starts the HTTP server on the configured host and port.
  *
  * Logs any errors that occur during the startup process.
- *
- * @returns A Promise that resolves when the server is successfully started.
- * @throws Will throw an error if any step in the startup process fails.
+ * @returns {Promise<void>} Resolves when the server is successfully started and connected to the database.
+ * @throws {Error} If any step in the startup process fails, such as:
+ * - Failure to connect to MongoDB.
+ * - Failure to start the HTTP server.
  */
 const main = async (): Promise<void> => {
   await initializeMongo();

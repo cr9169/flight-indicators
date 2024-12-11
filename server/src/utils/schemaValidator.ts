@@ -18,7 +18,7 @@ import { Request, Response, NextFunction } from "express";
  * @throws {ZodError} If the request does not conform to the schema,
  *                    an error response is sent with the validation details.
  */
-export const validateSchema =
+const validateSchema =
   (schema: AnyZodObject) =>
   (req: Request, res: Response, next: NextFunction): void => {
     try {
@@ -45,3 +45,5 @@ export const validateSchema =
       next(error);
     }
   };
+
+export default validateSchema;

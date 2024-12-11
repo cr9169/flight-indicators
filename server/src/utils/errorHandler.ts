@@ -11,7 +11,7 @@ import { Request, Response, NextFunction } from "express";
  * @param res - The HTTP response object.
  * @param next - The next middleware (unused in this case).
  */
-export const errorHandler = (
+const errorHandler = (
   err: Error,
   _req: Request,
   res: Response,
@@ -22,3 +22,5 @@ export const errorHandler = (
     error: err.message,
   });
 };
+
+export default errorHandler;

@@ -1,6 +1,7 @@
 import { once } from "events";
 import express from "express";
 import http from "http";
+import { IndicatorsModel } from "./Indicators/model";
 
 export class Server {
   private app: express.Application;
@@ -25,12 +26,31 @@ export class Server {
   }
 
   /**
-   * Starts the HTTP server and waits until it is listening for connections.
+   * Starts the HTTP server and initializes the application.
    *
-   * @throws If the server fails to start.
+   * - This method starts the Express HTTP server and waits until it is listening for connections.
+   * - It checks if an indicators document exists in the database.
+   *   - If no document exists, it creates a default document with all values set to 0.
+   *   - If a document already exists, it logs that no new document was created.
+   *
+   * @throws {Error} If the server fails to start or if database operations encounter an error.
    */
   async start() {
     this.http = this.app.listen(this.port, this.host);
     await once(this.http, "listening");
+
+    const existingIndicator = await IndicatorsModel.findOne({});
+    if (!existingIndicator) {
+      await IndicatorsModel.create({
+        altitude: 0,
+        his: 0,
+        adi: 0,
+      });
+      console.log(
+        "Default indicators document created with all values set to 0."
+      );
+    } else {
+      console.log("Indicators document already exists, didn't create default.");
+    }
   }
 }
