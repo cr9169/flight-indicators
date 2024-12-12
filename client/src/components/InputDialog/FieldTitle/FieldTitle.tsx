@@ -1,6 +1,10 @@
 import "./FieldTitle.scss";
 
-const FieldTitle = ({}: {}) => {
+interface FieldTitleProps {
+  indicator: string;
+}
+
+const FieldTitle: React.FC<FieldTitleProps> = ({ indicator }) => {
   return <div></div>;
 };
 
