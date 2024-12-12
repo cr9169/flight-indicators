@@ -5,6 +5,12 @@ import validateSchema from "../utils/schemaValidator";
 
 const indicatorsRouter = Router();
 
+indicatorsRouter.get(
+  "/indicators",
+  validateSchema(validationSchemas.getIndicatorsSchema),
+  IndicatorsController.getIndicators
+);
+
 indicatorsRouter.put(
   "/indicators",
   validateSchema(validationSchemas.updateIndicatorsSchema),
