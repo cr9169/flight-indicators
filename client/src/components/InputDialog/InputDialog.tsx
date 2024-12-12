@@ -1,7 +1,11 @@
 import "./TextViewSection.scss";
 
-const TextViewSection = ({}: {}) => {
+interface InputDialogProps {
+  closeDialog: () => void;
+}
+
+const InputDialog: React.FC<InputDialogProps> = ({ closeDialog }) => {
   return <div></div>;
 };
 
-export default TextViewSection;
+export default InputDialog;
