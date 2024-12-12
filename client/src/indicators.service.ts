@@ -24,11 +24,19 @@ export default class IndicatorsService {
       const indicators = (await axios.get(this.api)).data;
       return indicators;
     } catch (err) {
-      if (axios.isAxiosError(err))
+      if (axios.isAxiosError(err)) {
         throw new AxiosError(
-          `Failed to fetch indicators!\nError: ${err.message}`
+          `Failed to fetch indicators!\nError: ${err.message}\nStatus: ${
+            err.response?.status ?? "Unknown"
+          }\nData: ${JSON.stringify(err.response?.data) ?? "No Data"}`
         );
-      else throw new Error(`An unexpected error occurred: ${err}`);
+      } else {
+        throw new Error(
+          `An unexpected error occurred: ${
+            err instanceof Error ? err.message : String(err)
+          }`
+        );
+      }
     }
   }
 
@@ -48,11 +56,19 @@ export default class IndicatorsService {
       const indicators = (await axios.put(this.api, indicatorsData)).data;
       return indicators;
     } catch (err) {
-      if (axios.isAxiosError(err))
+      if (axios.isAxiosError(err)) {
         throw new AxiosError(
-          `Failed to fetch indicators!\nError: ${err.message}`
+          `Failed to fetch indicators!\nError: ${err.message}\nStatus: ${
+            err.response?.status ?? "Unknown"
+          }\nData: ${JSON.stringify(err.response?.data) ?? "No Data"}`
         );
-      else throw new Error(`An unexpected error occurred: ${err}`);
+      } else {
+        throw new Error(
+          `An unexpected error occurred: ${
+            err instanceof Error ? err.message : String(err)
+          }`
+        );
+      }
     }
   }
 }
