@@ -1,6 +1,11 @@
+import { Indicators } from "../../interfaces/indicators";
 import "./TextViewSection.scss";
 
-const TextViewSection = ({}: {}) => {
+interface TextViewSectionProps {
+  indicators: Indicators;
+}
+
+const TextViewSection: React.FC<TextViewSectionProps> = ({ indicators }) => {
   return <div></div>;
 };
 
