@@ -1,4 +1,4 @@
-import "./TextViewSection.scss";
+import "./InputDialog.scss";
 
 interface InputDialogProps {
   closeDialog: () => void;
