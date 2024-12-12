@@ -4,6 +4,7 @@ import InputBox from "./InputBox/InputBox";
 import SubmitButton from "./SubmitButton/SubmitButton";
 import { useState } from "react";
 import { Indicators } from "../../interfaces/indicators";
+import CloseDialogButton from "./CloseDialogButton/CloseDialogButton";
 
 interface InputDialogProps {
   closeDialog: () => void;
@@ -29,10 +30,12 @@ const InputDialog: React.FC<InputDialogProps> = ({
 
   const handleSubmit = () => {
     handleDataSubmition(input);
+    closeDialog();
   };
 
   return (
     <dialog className="input-dialog-main">
+      <CloseDialogButton handleClose={closeDialog} />
       <div className="inputs-section">
         {Object.keys(input).map((key) => (
           <div className="input-section" key={key}>
