@@ -6,23 +6,7 @@ import * as validationSchemas from "./validation";
 import * as errors from "../utils/customErrors";
 import { asyncHandler } from "../utils/wrappers";
 
-/**
- * Controller for managing flight indicators.
- *
- * This controller provides methods for:
- * - Retrieving the current indicators from the database.
- * - Updating the indicators in the database.
- *
- * The methods handle HTTP requests and responses, ensuring proper validation,
- * error handling, and interaction with the `IndicatorsModel`.
- *
- * Methods:
- * - `getIndicators`: Fetches the first indicators document from the database.
- * - `updateIndicators`: Updates the indicators document with new data provided by the client.
- *
- * Error Handling:
- * - Throws a `NotFoundError` if the indicators document does not exist.
- */
+// Controller class for managing flight indicators.
 class IndicatorsController {
   /**
    * Retrieves the indicators document from the database.
