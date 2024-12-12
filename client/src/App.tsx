@@ -18,7 +18,9 @@ function App() {
     const fetchData = () => {
       IndicatorsService.getIndicators()
         .then((data) => setIndicators(data))
-        .catch((err) => setError(err));
+        .catch((err) =>
+          setError(err instanceof Error ? err.message : String(err))
+        );
     };
 
     fetchData();
@@ -41,7 +43,7 @@ function App() {
   };
 
   return error ? (
-    <p>Error: {error}</p>
+    <pre>Error: {error}</pre>
   ) : indicators ? (
     <div>
       {isDialogOpen ? <InputDialog closeDialog={closeDialog} /> : null}
