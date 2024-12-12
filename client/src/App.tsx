@@ -42,11 +42,22 @@ function App() {
     dialogRef.current?.close();
   };
 
+  const handleDataSubmition = (input: Indicators) => {
+    IndicatorsService.updateIndicators(input)
+      .then((data) => setIndicators(data))
+      .catch((err) => alert(err instanceof Error ? err.message : String(err)));
+  };
+
   return error ? (
     <pre>Error: {error}</pre>
   ) : indicators ? (
     <div>
-      {isDialogOpen ? <InputDialog closeDialog={closeDialog} /> : null}
+      {isDialogOpen ? (
+        <InputDialog
+          closeDialog={closeDialog}
+          handleDataSubmition={handleDataSubmition}
+        />
+      ) : null}
       <Navbar handleViewChange={handleViewChange} openDialog={openDialog} />
       <main>
         {preferedView === "text" ? (

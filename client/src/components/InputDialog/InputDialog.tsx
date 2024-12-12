@@ -7,9 +7,13 @@ import { Indicators } from "../../interfaces/indicators";
 
 interface InputDialogProps {
   closeDialog: () => void;
+  handleDataSubmition: (input: Indicators) => void;
 }
 
-const InputDialog: React.FC<InputDialogProps> = ({ closeDialog }) => {
+const InputDialog: React.FC<InputDialogProps> = ({
+  closeDialog,
+  handleDataSubmition,
+}) => {
   const [input, setInput] = useState<Indicators>({
     altitude: 0,
     his: 0,
@@ -21,6 +25,10 @@ const InputDialog: React.FC<InputDialogProps> = ({ closeDialog }) => {
       ...prevState,
       [key]: value,
     }));
+  };
+
+  const handleSubmit = () => {
+    handleDataSubmition(input);
   };
 
   return (
@@ -39,7 +47,7 @@ const InputDialog: React.FC<InputDialogProps> = ({ closeDialog }) => {
           </div>
         ))}
       </div>
-      <SubmitButton />
+      <SubmitButton handleSubmit={handleSubmit} />
     </dialog>
   );
 };
