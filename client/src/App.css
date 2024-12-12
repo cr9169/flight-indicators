@@ -11,6 +11,20 @@
 html,
 body {
   height: 100%;
+
+  --clr-baby-blue: hsl(209, 56%, 84%);
+  --clr-blue-grotto: hsl(207, 61%, 61%);
+  --clr-royal-blue: hsl(202, 100%, 36%);
+  --clr-navy-blue: hsl(209, 100%, 23%);
+
+  --fs-primary: 1.25rem;
+  --fs-l: 1.4rem;
+  --fs-xl: 2rem;
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  --ff-primary: "Poppins", sans-serif;
 }
 
 body {
