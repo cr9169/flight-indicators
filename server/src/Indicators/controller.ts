@@ -6,7 +6,11 @@ import * as validationSchemas from "./validation";
 import * as errors from "../utils/customErrors";
 import { asyncHandler } from "../utils/wrappers";
 
-// Controller class for managing flight indicators.
+/**
+ * Controller class for managing flight indicators.
+ *
+ * @class IndicatorsService
+ */
 class IndicatorsController {
   /**
    * Retrieves the indicators document from the database.

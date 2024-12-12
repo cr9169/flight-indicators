@@ -5,6 +5,20 @@ import { IndicatorsModel } from "./Indicators/model";
 import serverRouter from "./router";
 import errorHandler from "./utils/errorHandler";
 
+/**
+ * Server class responsible for initializing and starting the HTTP server.
+ *
+ * The `Server` class sets up an Express application, configures routes and middleware,
+ * and ensures the server is ready to handle incoming connections. Additionally, it
+ * interacts with the database during startup to check and initialize the indicators document.
+ *
+ * @class Server
+ * @property {express.Application} app - The Express application instance used by the server.
+ * @property {http.Server} http - The HTTP server instance that listens for requests.
+ * @constructor
+ * @param {number} port - The port on which the server will listen for connections.
+ * @param {string} host - The hostname or IP address on which the server will bind.
+ */
 export class Server {
   private app: express.Application;
   private http!: http.Server;
