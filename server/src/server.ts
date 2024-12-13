@@ -4,6 +4,7 @@ import http from "http";
 import { IndicatorsModel } from "./Indicators/model";
 import serverRouter from "./router";
 import errorHandler from "./utils/errorHandler";
+import cors from "cors";
 
 /**
  * Server class responsible for initializing and starting the HTTP server.
@@ -35,6 +36,7 @@ export class Server {
   static createExpressApp(): express.Application {
     const app = express();
 
+    app.use(cors());
     // Middleware to parse JSON payloads
     app.use(express.json());
 
