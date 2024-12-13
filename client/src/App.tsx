@@ -63,13 +63,11 @@ function App() {
         handleViewChange={handleViewChange}
         openDialog={openDialog}
       />
-      <main>
-        {preferedView === "text" ? (
-          <VisualViewSection indicators={indicators} />
-        ) : (
-          <TextViewSection indicators={indicators} />
-        )}
-      </main>
+      {preferedView === "text" ? (
+        <TextViewSection indicators={indicators} />
+      ) : (
+        <VisualViewSection indicators={indicators} />
+      )}
     </div>
   ) : (
     <p>Loading...</p>
