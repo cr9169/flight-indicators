@@ -1,0 +1,14 @@
+.open-dialog-button-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease;
+}
+
+.open-dialog-button-main .open {
+  transform: rotate(45deg);
+}
+
+.plus-icon {
+  font-size: 1rem !important;
+}

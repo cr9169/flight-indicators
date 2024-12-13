@@ -58,7 +58,11 @@ function App() {
           handleDataSubmition={handleDataSubmition}
         />
       ) : null}
-      <Navbar handleViewChange={handleViewChange} openDialog={openDialog} />
+      <Navbar
+        isDialogOpen={isDialogOpen}
+        handleViewChange={handleViewChange}
+        openDialog={openDialog}
+      />
       <main>
         {preferedView === "text" ? (
           <VisualViewSection indicators={indicators} />
