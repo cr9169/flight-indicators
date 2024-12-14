@@ -42,7 +42,7 @@ const InputDialog: React.FC<InputDialogProps> = ({
             <FieldTitle indicator={key} />
             <InputBox
               indicator={key}
-              value={(input[key as keyof Indicators] as number) || 0}
+              value={(input[key as keyof Indicators] as number) ?? 0}
               handleInputChange={(value) =>
                 handleInputChange(key as keyof Indicators, value)
               }

@@ -5,7 +5,11 @@ interface SubmitButtonProps {
 }
 
 const SubmitButton: React.FC<SubmitButtonProps> = ({ handleSubmit }) => {
-  return <button className="submit-button" onClick={handleSubmit}></button>;
+  return (
+    <button className="submit-button" onClick={handleSubmit}>
+      Send
+    </button>
+  );
 };
 
 export default SubmitButton;
