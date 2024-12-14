@@ -1,7 +1,13 @@
 import "./HorizontalSituationIndicator.scss";
 
-const HorizontalSituationIndicator = ({}: {}) => {
-  return <div></div>;
+interface HorizontalSituationIndicatorProps {
+  indicator: number;
+}
+
+const HorizontalSituationIndicator: React.FC<
+  HorizontalSituationIndicatorProps
+> = (indicator) => {
+  return <div className="horizontal-situation-indicator-main"></div>;
 };
 
 export default HorizontalSituationIndicator;

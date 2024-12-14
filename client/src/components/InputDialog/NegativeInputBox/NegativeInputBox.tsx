@@ -1,14 +1,14 @@
-import "./InputBox.scss";
+import "./NegativeInputBox.scss";
 import React, { useState } from "react";
 
-interface InputBoxProps {
+interface NegativeInputBoxProps {
   indicator: string;
   handleInputChange: (value: number) => void;
   min: number;
   max: number;
 }
 
-const InputBox: React.FC<InputBoxProps> = ({
+const NegativeInputBox: React.FC<NegativeInputBoxProps> = ({
   indicator,
   handleInputChange,
   min,
@@ -19,27 +19,30 @@ const InputBox: React.FC<InputBoxProps> = ({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVal = e.target.value;
 
-    if (newVal === "") {
+    if (newVal === "" || newVal === "-") {
       setInputValue(newVal);
       return;
     }
 
-    let parsed = Number(newVal);
-    if (Number.isNaN(parsed)) {
-      return;
+    const parsed = Number(newVal);
+    if (!Number.isNaN(parsed)) {
+      let adjustedValue = parsed;
+
+      if (parsed < min) {
+        adjustedValue = min;
+      } else if (parsed > max) {
+        adjustedValue = max;
+      }
+
+      setInputValue(String(adjustedValue));
+      handleInputChange(adjustedValue);
     }
-
-    if (parsed < min) parsed = min;
-    if (parsed > max) parsed = max;
-
-    setInputValue(String(parsed));
-    handleInputChange(parsed);
   };
 
   return (
     <input
       type="text"
-      className="input-box-main"
+      className="negative-input-box-main"
       value={inputValue}
       onChange={handleChange}
       placeholder={`Enter ${indicator}`}
@@ -47,4 +50,4 @@ const InputBox: React.FC<InputBoxProps> = ({
   );
 };
 
-export default InputBox;
+export default NegativeInputBox;
