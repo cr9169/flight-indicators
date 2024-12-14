@@ -18,8 +18,8 @@ const InputDialog: React.FC<InputDialogProps> = ({
 }) => {
   const ranges = {
     altitude: { min: 0, max: 3000 },
-    his: { min: -100, max: 100 },
-    adi: { min: 0, max: 100 },
+    his: { min: 0, max: 360 },
+    adi: { min: -100, max: 100 },
   };
 
   const titles = {
@@ -53,7 +53,7 @@ const InputDialog: React.FC<InputDialogProps> = ({
         {Object.keys(input).map((key) => (
           <div className="input-section" key={key}>
             <FieldTitle indicator={titles[key as keyof typeof titles]} />
-            {key === "his" ? (
+            {key === "adi" ? (
               <NegativeInputBox
                 indicator={key}
                 handleInputChange={(value) =>
