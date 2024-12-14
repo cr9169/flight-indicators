@@ -42,10 +42,13 @@ function App() {
     dialogRef.current?.close();
   };
 
-  const handleDataSubmition = (input: Indicators) => {
-    IndicatorsService.updateIndicators(input)
-      .then((data) => setIndicators(data))
-      .catch((err) => alert(err instanceof Error ? err.message : String(err)));
+  const handleDataSubmition = async (input: Indicators) => {
+    try {
+      const data = await IndicatorsService.updateIndicators(input);
+      setIndicators(data);
+    } catch (err) {
+      alert(err instanceof Error ? err.message : String(err));
+    }
   };
 
   return error ? (
