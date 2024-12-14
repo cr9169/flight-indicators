@@ -1,11 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import config from "./src/config";
+import buildConfig from "./src/config/buildConfig";
 
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: config.service.host,
-    port: config.service.port,
+    host: buildConfig.service.host,
+    port: buildConfig.service.port,
   },
 });

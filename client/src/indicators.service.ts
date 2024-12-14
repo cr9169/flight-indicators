@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { Indicators } from "./interfaces/indicators";
-import config from "./config";
+import config from "./config/config";
 
 /**
  * Service class to manage API interactions with server.
