@@ -5,7 +5,7 @@ interface FieldTitleProps {
 }
 
 const FieldTitle: React.FC<FieldTitleProps> = ({ indicator }) => {
-  return <div></div>;
+  return <h2 className="field-title-main">{indicator}</h2>;
 };
 
 export default FieldTitle;
