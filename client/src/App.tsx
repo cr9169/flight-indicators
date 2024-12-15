@@ -63,7 +63,7 @@ function App() {
       ) : null}
       <Navbar handleViewChange={handleViewChange} openDialog={openDialog} />
       {preferedView === "text" ? (
-        <TextViewSection indicators={indicators} />
+        <TextViewSection isDialogOpen={isDialogOpen} indicators={indicators} />
       ) : (
         <VisualViewSection indicators={indicators} />
       )}
