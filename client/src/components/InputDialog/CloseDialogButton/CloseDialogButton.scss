@@ -1,4 +1,6 @@
 .close-dialog-button {
+  width: 2rem;
+  aspect-ratio: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,7 +8,18 @@
   position: fixed;
   top: 2rem;
   left: 2rem;
+  transition: transform 0.5s ease;
+  border-radius: 50%;
+  border: 0.15rem black solid;
+  cursor: pointer;
+  background-color: white;
 }
 
 .close-dialog-button-icon {
+  font-size: 1rem !important;
+}
+
+.close-dialog-button:hover {
+  transform: scale(1.2);
+  background-color: var(--clr-royal-blue);
 }
