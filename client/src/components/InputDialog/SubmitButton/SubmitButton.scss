@@ -1,16 +1,18 @@
 .submit-button {
   position: fixed;
   bottom: 2rem;
-  height: 2rem;
+  width: 7rem;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.5s ease;
-  border-radius: 1rem;
+  border-radius: 3rem;
   border: 0.15rem black solid;
   cursor: pointer;
   background-color: white;
   padding-inline: 1rem;
+  font-size: var(--fs-l);
+  padding: 0.5rem 1rem;
 }
 
 .submit-button:hover {
