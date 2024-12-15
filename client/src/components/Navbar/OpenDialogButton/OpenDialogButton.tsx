@@ -12,7 +12,7 @@ const OpenDialogButton: React.FC<OpenDialogButtonProps> = ({
 }) => {
   return (
     <button className="open-dialog-button-main" onClick={openDialog}>
-      <AddIcon className={`plus-icon ${isDialogOpen ? "open" : ""}`} />
+      <AddIcon className={"plus-icon"} />
     </button>
   );
 };
