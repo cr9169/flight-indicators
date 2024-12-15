@@ -2,12 +2,10 @@ import "./OpenDialogButton.scss";
 import AddIcon from "@mui/icons-material/Add";
 
 interface OpenDialogButtonProps {
-  isDialogOpen: boolean;
   openDialog: () => void;
 }
 
 const OpenDialogButton: React.FC<OpenDialogButtonProps> = ({
-  isDialogOpen,
   openDialog,
 }) => {
   return (
