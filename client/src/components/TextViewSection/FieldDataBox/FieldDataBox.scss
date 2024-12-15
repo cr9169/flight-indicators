@@ -1,6 +1,28 @@
 .field-data-box-main {
+  height: 20rem;
+  aspect-ratio: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: transform 0.5s ease;
+  border-radius: 1rem;
+  border: 0.15rem black solid;
+  cursor: pointer;
+  background-color: white;
+  padding-inline: 1rem;
+  gap: 2rem;
+
+  h2 {
+    font-size: var(--fs-xl);
+  }
+
+  p {
+    font-size: var(--fs-l);
+  }
+}
+
+.field-data-box-main:hover {
+  transform: scale(1.5);
+  background-color: var(--clr-royal-blue);
 }
