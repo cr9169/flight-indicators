@@ -20,7 +20,7 @@ const AltitudeIndicator: React.FC<AltitudeIndicatorProps> = ({ indicator }) => {
   return (
     <div className="altitude-indicator-main">
       <div className="chart-container">
-        <svg viewBox="0 0 100 300" width="100" height="300">
+        <svg viewBox="-50 0 150 300" width="150" height="300">
           <defs>
             <linearGradient id="blueGradient" x1="0" x2="0" y1="1" y2="0">
               <stop offset="0%" stopColor="hsl(209, 56%, 84%)" />
@@ -29,6 +29,7 @@ const AltitudeIndicator: React.FC<AltitudeIndicatorProps> = ({ indicator }) => {
               <stop offset="100%" stopColor="hsl(209, 100%, 23%)" />
             </linearGradient>
           </defs>
+
           <rect
             x="1"
             y={isAnimating ? 300 - fillPercentage * 3 : 300}
@@ -37,17 +38,32 @@ const AltitudeIndicator: React.FC<AltitudeIndicatorProps> = ({ indicator }) => {
             fill="url(#blueGradient)"
             className="animated-fill"
           />
+
           <rect
-            x="0"
+            x="2.5" /* Half of strokeWidth */
             y="0"
-            width="100"
+            width="95" /* Reduced to account for the right-side stroke */
             height="300"
             fill="none"
             stroke="black"
-            strokeWidth="6"
+            strokeWidth="5"
             shapeRendering="crispEdges"
           />
+
+          <text x="-15" y="300" fontSize="12" textAnchor="end" fill="black">
+            0
+          </text>
+          <text x="-15" y="200" fontSize="12" textAnchor="end" fill="black">
+            1000
+          </text>
+          <text x="-15" y="100" fontSize="12" textAnchor="end" fill="black">
+            2000
+          </text>
+          <text x="-15" y="10" fontSize="12" textAnchor="end" fill="black">
+            3000
+          </text>
         </svg>
+
         <div
           className="arrow-container"
           style={{
