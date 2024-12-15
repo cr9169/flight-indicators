@@ -14,7 +14,7 @@
       display: block;
 
       .animated-fill {
-        transition: height 0.5s ease-in-out, y 0.5s ease-in-out;
+        transition: height 1s ease-in-out, y 1s ease-in-out;
       }
     }
 
@@ -24,7 +24,7 @@
       display: flex;
       align-items: center;
       transform: translateY(-0.75rem);
-      transition: top 0.5s ease-in-out;
+      transition: top 1s ease-in-out;
 
       .line {
         height: 0.125rem;
