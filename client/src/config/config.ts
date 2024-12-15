@@ -1,4 +1,3 @@
-// src/config.ts
 import buildConfig from "./buildConfig";
 
 /**
