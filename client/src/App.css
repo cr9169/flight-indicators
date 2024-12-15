@@ -28,6 +28,7 @@ body {
   --ff-primary: "Poppins", sans-serif;
 
   font-family: var(--ff-primary);
+  background-color: var(--clr-baby-blue);
 }
 
 body {

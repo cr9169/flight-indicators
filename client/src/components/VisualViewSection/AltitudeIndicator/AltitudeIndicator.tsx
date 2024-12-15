@@ -40,9 +40,9 @@ const AltitudeIndicator: React.FC<AltitudeIndicatorProps> = ({ indicator }) => {
           />
 
           <rect
-            x="2.5" /* Half of strokeWidth */
+            x="2.5"
             y="0"
-            width="95" /* Reduced to account for the right-side stroke */
+            width="95"
             height="300"
             fill="none"
             stroke="black"
