@@ -1,0 +1,16 @@
+.altitude-direction-indicator-main {
+  width: 20rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: white;
+  border: 0.25rem solid black;
+  transition: background-color 1s ease-in-out;
+}
+
+.hundred {
+  background-color: var(--clr-navy-blue) !important;
+}
+
+.zero {
+  background-color: var(--clr-green) !important;
+}

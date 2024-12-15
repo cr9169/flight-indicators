@@ -1,0 +1,17 @@
+.nav-button-main {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease;
+  border-radius: 1rem;
+  border: 0.15rem black solid;
+  cursor: pointer;
+  background-color: white;
+  padding-inline: 1rem;
+}
+
+.nav-button-main:hover {
+  transform: scale(1.2);
+  background-color: var(--clr-royal-blue);
+}
