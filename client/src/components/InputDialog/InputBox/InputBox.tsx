@@ -1,5 +1,6 @@
 import "./InputBox.scss";
 import React, { useState } from "react";
+import { titles } from "../valuesMapping";
 
 interface InputBoxProps {
   indicator: string;
@@ -42,7 +43,7 @@ const InputBox: React.FC<InputBoxProps> = ({
       className="input-box-main"
       value={inputValue}
       onChange={handleChange}
-      placeholder={`Enter ${indicator}`}
+      placeholder={`Enter ${titles[indicator as keyof typeof titles]}`}
     />
   );
 };

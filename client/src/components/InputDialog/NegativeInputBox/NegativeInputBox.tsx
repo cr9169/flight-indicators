@@ -1,3 +1,4 @@
+import { titles } from "../valuesMapping";
 import "./NegativeInputBox.scss";
 import React, { useState } from "react";
 
@@ -45,7 +46,7 @@ const NegativeInputBox: React.FC<NegativeInputBoxProps> = ({
       className="negative-input-box-main"
       value={inputValue}
       onChange={handleChange}
-      placeholder={`Enter ${indicator}`}
+      placeholder={`Enter ${titles[indicator as keyof typeof titles]}`}
     />
   );
 };

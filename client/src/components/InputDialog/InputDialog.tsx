@@ -6,6 +6,7 @@ import SubmitButton from "./SubmitButton/SubmitButton";
 import { useState } from "react";
 import { Indicators } from "../../interfaces/indicators";
 import CloseDialogButton from "./CloseDialogButton/CloseDialogButton";
+import * as valuesMapping from "./valuesMapping";
 
 interface InputDialogProps {
   closeDialog: () => void;
@@ -16,18 +17,6 @@ const InputDialog: React.FC<InputDialogProps> = ({
   closeDialog,
   handleDataSubmition,
 }) => {
-  const ranges = {
-    altitude: { min: 0, max: 3000 },
-    his: { min: 0, max: 360 },
-    adi: { min: -100, max: 100 },
-  };
-
-  const titles = {
-    altitude: "Altitude",
-    his: "HIS",
-    adi: "ADI",
-  };
-
   const [input, setInput] = useState<Indicators>({
     altitude: 0,
     his: 0,
@@ -52,15 +41,25 @@ const InputDialog: React.FC<InputDialogProps> = ({
       <div className="inputs-section">
         {Object.keys(input).map((key) => (
           <div className="input-section" key={key}>
-            <FieldTitle indicator={titles[key as keyof typeof titles]} />
+            <FieldTitle
+              indicator={
+                valuesMapping.titles[key as keyof typeof valuesMapping.titles]
+              }
+            />
             {key === "adi" ? (
               <NegativeInputBox
                 indicator={key}
                 handleInputChange={(value) =>
                   handleInputChange(key as keyof Indicators, value)
                 }
-                min={ranges[key as keyof typeof ranges].min}
-                max={ranges[key as keyof typeof ranges].max}
+                min={
+                  valuesMapping.ranges[key as keyof typeof valuesMapping.ranges]
+                    .min
+                }
+                max={
+                  valuesMapping.ranges[key as keyof typeof valuesMapping.ranges]
+                    .max
+                }
               />
             ) : (
               <InputBox
@@ -68,8 +67,14 @@ const InputDialog: React.FC<InputDialogProps> = ({
                 handleInputChange={(value) =>
                   handleInputChange(key as keyof Indicators, value)
                 }
-                min={ranges[key as keyof typeof ranges].min}
-                max={ranges[key as keyof typeof ranges].max}
+                min={
+                  valuesMapping.ranges[key as keyof typeof valuesMapping.ranges]
+                    .min
+                }
+                max={
+                  valuesMapping.ranges[key as keyof typeof valuesMapping.ranges]
+                    .max
+                }
               />
             )}
           </div>
