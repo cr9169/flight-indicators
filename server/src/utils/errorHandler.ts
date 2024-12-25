@@ -24,6 +24,7 @@ const errorHandler = (
     res.status(404).json({
       error: err.message,
     });
+    return;
   }
 
   res.status(500).json({

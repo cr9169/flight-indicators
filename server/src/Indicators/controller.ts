@@ -1,5 +1,4 @@
 import { IndicatorsModel } from "./model";
-import { Indicators } from "./interface";
 import { Request, Response, NextFunction } from "express";
 import { TypedRequest } from "../utils/advencedTypes";
 import * as validationSchemas from "./validation";
