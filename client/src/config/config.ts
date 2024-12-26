@@ -18,15 +18,15 @@ function getServerBaseUrl(): string {
  * Runtime configuration.
  * Uses static values from `buildConfig` plus runtime logic that depends on `window`.
  */
+const clientConnectionString = getServerBaseUrl();
+
 const config = {
   service: {
     ...buildConfig.service,
   },
   server: {
     ...buildConfig.server,
-    get clientConnectionString() {
-      return getServerBaseUrl();
-    },
+    clientConnectionString, 
   },
 };
 
